@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  font-size: 10px;
+  font-family: "Raleway", sans-serif;
+}
+
+section {
+  height: 100vh;
+  padding: 10em;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  /* background: white; */
+  width: 100vw;
+  padding: 1rem 2rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.header--opaque {
+  background: white;
+  transition: all 0.2s ease-in-out;
+}
+
+.header--opaque .navbar a {
+  color: black;
+}
+
+.header .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header--transparent .navbar a {
+  color: white;
+}
+
+.header .navbar .navbar__brand {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.header .navbar .navbar__menu {
+  display: flex;
+  justify-content: flex-end;
+
+  width: 50vw;
+}
+
+.header .navbar .navbar__menu .navbar__menu__item {
+  font-size: 1.2rem;
+  margin-left: 1rem;
+}
+
+.container {
+  position: relative;
+  scroll-snap-type: y mandatory;
+  overflow: auto;
+}
+
+.container .section {
+  position: relative;
+  scroll-snap-align: start;
+}
+
+.container .section:nth-child(1) {
+  background: blue;
+}
