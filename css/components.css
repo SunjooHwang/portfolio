@@ -72,6 +72,10 @@ a {
   margin-left: 1rem;
 }
 
+.header .navbar .navbar__menu .navbar__menu__item a {
+  background: rgba(205, 92, 92, 0);
+}
+
 .header--mobile {
   display: none;
 }
@@ -80,8 +84,8 @@ a {
   display: none;
 }
 
-.item--active {
-  background: red;
+.item--active a {
+  background: rgba(205, 92, 92, 1) !important;
 }
 
 .container {
@@ -148,8 +152,6 @@ p {
   width: 70%;
 }
 
-.section--about__text h1 {
-}
 .section--about__text p {
   font-size: 1.5rem;
 }
@@ -225,6 +227,11 @@ p {
     cursor: pointer;
   }
 
+  .header .navbar .mobile--white {
+    background: white !important;
+    color: black;
+  }
+
   .header .navbar .navbar__menu--mobile {
     position: absolute;
     transform: translateY(-500px);
@@ -236,12 +243,12 @@ p {
     justify-content: center;
     height: 45vh;
     width: 100vw;
-    transition: all 0.7s ease-in-out;
+    transition: transform 1s, background 0.2s, color 0.2s ease-in-out;
     z-index: 1;
   }
 
   .header .navbar .mobile--active {
-    transition: all 0.7s ease-in-out;
+    transition: transform 1s, background 0.2s, color 0.2s ease-in-out;
     transform: translateY(0px);
     top: 10vh;
   }
@@ -256,5 +263,75 @@ p {
   }
   .header .navbar .navbar__menu--mobile .navbar__menu__item a {
     font-size: 1.5rem;
+  }
+
+  .section--home {
+    background: black;
+    display: flex;
+    align-items: center;
+    padding: 5rem;
+  }
+
+  .section--home .section--home__content {
+    background: white;
+  }
+
+  .section--home .section--home__content .section--home__content__text {
+    font-size: 3rem;
+  }
+
+  .section--about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .section--about__content {
+    display: grid;
+
+    grid-template-rows: repeat(2, 50%);
+    grid-template-areas:
+      "text text"
+      "picture picture";
+  }
+
+  .section--about__content .section--about__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-bottom: 2rem;
+  }
+
+  .section--about__text .about__title1 {
+    font-weight: 100;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .section--about__text .about__title2 {
+    font-weight: 600;
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .section--about__text h1,
+  p {
+    width: 80%;
+  }
+
+  .section--about__text p {
+    font-size: 1.2rem;
+  }
+
+  .section--about__content .section--about__picture {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  .section--about__picture img {
+    max-height: 250px;
+    border-radius: 0.25rem;
   }
 }

@@ -29,9 +29,11 @@ const headerCallback = (entries, observer) => {
     if (entry.isIntersecting) {
       header.classList.add("header--opaque");
       header.classList.remove("header--transparent");
+      navMobile.classList.add("mobile--white");
     } else {
       header.classList.remove("header--opaque");
       header.classList.add("header--transparent");
+      navMobile.classList.remove("mobile--white");
     }
   });
 };
