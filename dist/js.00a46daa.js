@@ -3278,22 +3278,30 @@ var _locomotiveScroll = _interopRequireDefault(require("locomotive-scroll"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var container = document.querySelector(".section-two");
+var aboutSection = document.querySelector(".section--about");
 var header = document.querySelector(".header");
+var navItems = document.querySelectorAll(".navbar__menu__item");
+var sections = document.querySelectorAll(".section");
+var hamburger = document.querySelector(".navbar__hamburger");
+var navMobile = document.querySelector(".navbar__menu--mobile");
 var scroll = new _locomotiveScroll.default({
   el: document.querySelector("[data-scroll-container]"),
   smooth: true,
   multiplier: 2
 });
-var observerOptions = {
+var headerOptions = {
   root: null,
   threshold: 0.1
 };
+var navOptions = {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.7
+};
 
-var observerCallback = function observerCallback(entries, observer) {
+var headerCallback = function headerCallback(entries, observer) {
   entries.forEach(function (entry) {
     if (entry.isIntersecting) {
-      console.log("hey");
       header.classList.add("header--opaque");
       header.classList.remove("header--transparent");
     } else {
@@ -3303,8 +3311,30 @@ var observerCallback = function observerCallback(entries, observer) {
   });
 };
 
-var observeHeader = new IntersectionObserver(observerCallback, observerOptions);
-observeHeader.observe(container);
+var navCallback = function navCallback(entries, observer) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      console.log(entry.target.id);
+      var navItem = navItems[entry.target.id];
+      navItem.classList.add("item--active");
+      Object.values(navItems).forEach(function (item) {
+        if (item != navItem) {
+          item.classList.remove("item--active");
+        }
+      });
+    }
+  });
+};
+
+var observeHeader = new IntersectionObserver(headerCallback, headerOptions);
+var observeNav = new IntersectionObserver(navCallback, navOptions);
+observeHeader.observe(aboutSection);
+sections.forEach(function (section) {
+  return observeNav.observe(section);
+});
+hamburger.addEventListener("click", function () {
+  navMobile.classList.toggle("mobile--active");
+});
 },{"locomotive-scroll":"node_modules/locomotive-scroll/dist/locomotive-scroll.esm.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -3333,7 +3363,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57917" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60008" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
