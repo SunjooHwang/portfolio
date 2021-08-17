@@ -7,6 +7,7 @@ import SwiperCore, { Navigation, Pagination } from "swiper/core";
 import "swiper/swiper-bundle.css";
 
 const homeSection = document.querySelector(".section--home");
+const aboutSection = document.querySelector(".section--about");
 
 const header = document.querySelector(".header");
 const navItems = document.querySelectorAll(".navbar__menu__item");
@@ -17,38 +18,13 @@ const navMobile = document.querySelector(".navbar__menu--mobile");
 const scroll = new LocomotiveScroll({
   el: document.querySelector("[data-scroll-container]"),
   smooth: true,
+  multiplier: 2,
 });
-
-const headerOptions = {
-  root: document.querySelector(".container"),
-  threshold: 0.3,
-};
 
 const navOptions = {
   root: null,
   rootMargin: "0px",
   threshold: 0.7,
-};
-
-const headerCallback = (entries, observer) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      console.log(entry);
-      header.classList.add("header--opaque");
-      header.classList.remove("header--transparent");
-      navMobile.classList.add("mobile--white");
-    }
-  });
-};
-
-const homeCallback = (entries, observer) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      header.classList.remove("header--opaque");
-      header.classList.add("header--transparent");
-      navMobile.classList.remove("mobile--white");
-    }
-  });
 };
 
 const navCallback = (entries, observer) => {
@@ -69,14 +45,8 @@ const navCallback = (entries, observer) => {
   });
 };
 
-const observeHeader = new IntersectionObserver(headerCallback, headerOptions);
 const observeNav = new IntersectionObserver(navCallback, navOptions);
-const observeHome = new IntersectionObserver(homeCallback, headerOptions);
 
-// sections.forEach((section) => observeHeader.observe(section));
-// observeHome.observe(homeSection);
-
-// observeHeader.observe(aboutSection);
 sections.forEach((section) => observeNav.observe(section));
 
 hamburger.addEventListener("click", () => {
@@ -94,5 +64,29 @@ const swiper = new Swiper(".skills__slider", {
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
+  },
+});
+
+// ScrollTrigger.create({
+//   target: "#1",
+//   start: "top top",
+//   end: 99999,
+//   markers: true,
+//   toggleClass: { className: "header--opaque", targets: ".header" },
+// });
+
+const headerClasses = ["header--opaque", "header--transparent"];
+
+const headerToggle = function () {
+  console.log("toggle");
+  headerClasses.forEach((headerClass) => header.classList.toggle(headerClass));
+};
+
+gsap.to(header, {
+  scrollTrigger: {
+    trigger: aboutSection,
+    start: "top 70",
+    onEnter: headerToggle,
+    onLeaveBack: headerToggle,
   },
 });

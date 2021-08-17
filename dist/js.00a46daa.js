@@ -15795,6 +15795,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // configure Swiper to use modules
 var homeSection = document.querySelector(".section--home");
+var aboutSection = document.querySelector(".section--about");
 var header = document.querySelector(".header");
 var navItems = document.querySelectorAll(".navbar__menu__item");
 var sections = document.querySelectorAll(".section");
@@ -15802,37 +15803,13 @@ var hamburger = document.querySelector(".navbar__hamburger");
 var navMobile = document.querySelector(".navbar__menu--mobile");
 var scroll = new _locomotiveScroll.default({
   el: document.querySelector("[data-scroll-container]"),
-  smooth: true
+  smooth: true,
+  multiplier: 2
 });
-var headerOptions = {
-  root: document.querySelector(".container"),
-  threshold: 0.3
-};
 var navOptions = {
   root: null,
   rootMargin: "0px",
   threshold: 0.7
-};
-
-var headerCallback = function headerCallback(entries, observer) {
-  entries.forEach(function (entry) {
-    if (entry.isIntersecting) {
-      console.log(entry);
-      header.classList.add("header--opaque");
-      header.classList.remove("header--transparent");
-      navMobile.classList.add("mobile--white");
-    }
-  });
-};
-
-var homeCallback = function homeCallback(entries, observer) {
-  entries.forEach(function (entry) {
-    if (entry.isIntersecting) {
-      header.classList.remove("header--opaque");
-      header.classList.add("header--transparent");
-      navMobile.classList.remove("mobile--white");
-    }
-  });
 };
 
 var navCallback = function navCallback(entries, observer) {
@@ -15853,12 +15830,7 @@ var navCallback = function navCallback(entries, observer) {
   });
 };
 
-var observeHeader = new IntersectionObserver(headerCallback, headerOptions);
 var observeNav = new IntersectionObserver(navCallback, navOptions);
-var observeHome = new IntersectionObserver(homeCallback, headerOptions); // sections.forEach((section) => observeHeader.observe(section));
-// observeHome.observe(homeSection);
-// observeHeader.observe(aboutSection);
-
 sections.forEach(function (section) {
   return observeNav.observe(section);
 });
@@ -15877,6 +15849,30 @@ var swiper = new _swiper.default(".skills__slider", {
   pagination: {
     el: ".swiper-pagination",
     clickable: true
+  }
+}); // ScrollTrigger.create({
+//   target: "#1",
+//   start: "top top",
+//   end: 99999,
+//   markers: true,
+//   toggleClass: { className: "header--opaque", targets: ".header" },
+// });
+
+var headerClasses = ["header--opaque", "header--transparent"];
+
+var headerToggle = function headerToggle() {
+  console.log("toggle");
+  headerClasses.forEach(function (headerClass) {
+    return header.classList.toggle(headerClass);
+  });
+};
+
+gsap.to(header, {
+  scrollTrigger: {
+    trigger: aboutSection,
+    start: "top 70",
+    onEnter: headerToggle,
+    onLeaveBack: headerToggle
   }
 });
 },{"color-name":"node_modules/color-name/index.js","locomotive-scroll":"node_modules/locomotive-scroll/dist/locomotive-scroll.esm.js","swiper":"node_modules/swiper/swiper.esm.js","swiper/core":"node_modules/swiper/swiper.esm.js","swiper/swiper-bundle.css":"node_modules/swiper/swiper-bundle.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -15907,7 +15903,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55082" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60764" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
