@@ -12,10 +12,12 @@ body {
   margin: 0;
   font-size: 10px;
   font-family: "Raleway", sans-serif;
+  scroll-behavior: smooth;
 }
 
-section {
+.section {
   height: 100vh;
+  width: 100vw;
 }
 
 ul {
@@ -73,7 +75,10 @@ a {
 }
 
 .header .navbar .navbar__menu .navbar__menu__item a {
-  background: rgba(205, 92, 92, 0);
+  padding: 0.2rem;
+}
+.header .navbar .navbar__menu .navbar__menu__item a:hover {
+  color: var(--mai-bg-col);
 }
 
 .header--mobile {
@@ -84,7 +89,7 @@ a {
   display: none;
 }
 
-.item--active a {
+.item--active {
   background: var(--main-red-col) !important;
 }
 
@@ -107,12 +112,30 @@ a {
 }
 
 .section--home .section--home__content {
-  background: var(--main-bg-col);
+  display: flex;
+  flex-direction: column;
 }
 
 .section--home .section--home__content .section--home__content__text {
+  width: 40rem;
+  background: var(--main-bg-col);
   font-size: 5rem;
   color: var(--main-black-col);
+
+  opacity: 0;
+}
+
+.section--home .section--home__content .home__title1 {
+  transform: translateY(100px);
+}
+.section--home .section--home__content .home__title2 {
+  transform: translateY(120px);
+}
+
+.section--home .section--home__content .lazy-up {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: all 1.5s ease-in-out;
 }
 
 .section--about {
@@ -137,6 +160,19 @@ a {
   align-items: center;
 
   color: var(--main-black-col);
+
+  opacity: 0;
+  transition: all 1.5s ease-in-out;
+  transform: translateY(100px);
+}
+
+.section--about__content .section--about__text h1 {
+  transition: opacity 1s;
+}
+
+.section--about__content .lazy-up {
+  opacity: 1;
+  transform: translateY(0px);
 }
 
 .section--about__text .about__title1 {
@@ -167,24 +203,38 @@ p {
 .section--about__picture img {
   max-height: 500px;
   border-radius: 0.25rem;
+
+  opacity: 0;
+  transition: all 1.5s ease-in-out;
+  transform: translateY(130px);
 }
 
 .section--skills {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--main-red-col);
+  background: var(--main-bg-col);
 }
 
 .section--skills__content {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 
-  padding: 10vh 10rem 10vh 10rem;
+  padding: 10vh 20rem 5vh 20rem;
+}
+
+.section--skills .section--skills__content .lazy-up {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: all 1s ease-in-out;
 }
 
 .section--skills__content .section--skills__title {
   height: 20%;
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(100px);
 }
 .section--skills__content .section--skills__title h1 {
   color: var(--main-black-col);
@@ -193,7 +243,6 @@ p {
 .section--skills__title .skills__title1 {
   font-weight: 100;
   font-size: 2rem;
-  margin-bottom: 0.5rem;
   color: whitesmoke;
 }
 
@@ -207,36 +256,51 @@ p {
 .section--skills__content .skills__slider {
   width: 100%;
   height: 80%;
+
+  opacity: 0;
+  transform: translateY(120px);
 }
 
 .section--skills__content .skills__slider .skills__slide {
-  height: calc((100% - 30px) / 2);
+  /* background: black; */
+  height: calc((80%) / 2);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .section--skills__content .skills__slider .skills__slide__icon {
-  height: 200px;
-  width: 200px;
+  height: 180px;
+  width: 120px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--main-dark-col);
 }
 
 .section--skills__content .skills__slider .skills__slide__icon i {
   font-size: 5rem;
+  color: var(--main-red-col);
 }
 .section--skills__content .skills__slider .skills__slide__icon h1 {
-  font-size: 2rem;
+  color: var(--main-bg-col);
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.section--skills__content .skills__slider .swiper-pagination-bullet {
+  width: 1rem;
+  height: 1rem;
+  text-align: center;
+  opacity: 1;
+  background: var(--main-grey-col);
+}
+
+.section--skills__content .skills__slider .swiper-pagination-bullet-active {
+  color: #fff;
+  background: var(--main-red-col);
 }
 
 @media screen and (max-width: 768px) {

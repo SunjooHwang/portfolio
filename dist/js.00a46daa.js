@@ -15795,7 +15795,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // configure Swiper to use modules
 var homeSection = document.querySelector(".section--home");
-var sectionsIntersected = [document.querySelector(".section--about"), document.querySelector(".section--skills"), document.querySelector(".section--works"), document.querySelector(".section--contact")];
 var header = document.querySelector(".header");
 var navItems = document.querySelectorAll(".navbar__menu__item");
 var sections = document.querySelectorAll(".section");
@@ -15803,11 +15802,10 @@ var hamburger = document.querySelector(".navbar__hamburger");
 var navMobile = document.querySelector(".navbar__menu--mobile");
 var scroll = new _locomotiveScroll.default({
   el: document.querySelector("[data-scroll-container]"),
-  smooth: true,
-  multiplier: 2
+  smooth: true
 });
 var headerOptions = {
-  root: null,
+  root: document.querySelector(".container"),
   threshold: 0.3
 };
 var navOptions = {
@@ -15842,9 +15840,13 @@ var navCallback = function navCallback(entries, observer) {
     if (entry.isIntersecting) {
       var navItem = navItems[entry.target.id];
       navItem.classList.add("item--active");
+      navItem.classList.remove("hvr-sweep-to-right");
+      navItem.classList.add("hvr-sweep-to-right--white");
       Object.values(navItems).forEach(function (item) {
         if (item != navItem) {
-          item.classList.remove("item--active");
+          navItem.classList.remove("item--active");
+          navItem.classList.add("hvr-sweep-to-right");
+          navItem.classList.remove("hvr-sweep-to-right--white");
         }
       });
     }
@@ -15853,11 +15855,9 @@ var navCallback = function navCallback(entries, observer) {
 
 var observeHeader = new IntersectionObserver(headerCallback, headerOptions);
 var observeNav = new IntersectionObserver(navCallback, navOptions);
-var observeHome = new IntersectionObserver(homeCallback, headerOptions);
-sectionsIntersected.forEach(function (section) {
-  return observeHeader.observe(section);
-});
-observeHome.observe(homeSection); // observeHeader.observe(aboutSection);
+var observeHome = new IntersectionObserver(homeCallback, headerOptions); // sections.forEach((section) => observeHeader.observe(section));
+// observeHome.observe(homeSection);
+// observeHeader.observe(aboutSection);
 
 sections.forEach(function (section) {
   return observeNav.observe(section);
@@ -15869,17 +15869,14 @@ hamburger.addEventListener("click", function () {
 _core.default.use([_core.Navigation, _core.Pagination]);
 
 var swiper = new _swiper.default(".skills__slider", {
-  slidesPerView: 3,
+  slidesPerView: 4,
   slidesPerColumn: 2,
-  spaceBetween: 30,
+  slidesPerGroup: 8,
+  spaceBetween: 0,
   slidesPerColumnFill: "row",
   pagination: {
     el: ".swiper-pagination",
     clickable: true
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev"
   }
 });
 },{"color-name":"node_modules/color-name/index.js","locomotive-scroll":"node_modules/locomotive-scroll/dist/locomotive-scroll.esm.js","swiper":"node_modules/swiper/swiper.esm.js","swiper/core":"node_modules/swiper/swiper.esm.js","swiper/swiper-bundle.css":"node_modules/swiper/swiper-bundle.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -15910,7 +15907,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62138" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55082" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

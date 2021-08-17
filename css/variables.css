@@ -1,6 +1,8 @@
 :root {
   --main-bg-col: #edf2f4;
+  --main-light-col: #ced4da;
   --main-grey-col: #8d99ae;
   --main-black-col: #0b090a;
+  --main-dark-col: #232a2f;
   --main-red-col: #ef233c;
 }

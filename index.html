@@ -7,6 +7,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/base.css" />
     <link rel="stylesheet" href="./css/main.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
     <script
       src="https://kit.fontawesome.com/1165ec50ee.js"
       crossorigin="anonymous"
@@ -21,6 +23,23 @@
       <nav class="navbar">
         <a href="#" class="navbar__brand">Sunjoo Hwang</a>
         <ul class="navbar__menu">
+          <li class="navbar__menu__item hvr-sweep-to-right" id="home">
+            <a href="#0">Home</a>
+          </li>
+          <li class="navbar__menu__item hvr-sweep-to-right" id="about">
+            <a href="#1">About Me</a>
+          </li>
+          <li class="navbar__menu__item hvr-sweep-to-right" id="skills">
+            <a href="#2">My Skills</a>
+          </li>
+          <li class="navbar__menu__item hvr-sweep-to-right" id="works">
+            <a href="#3">My Works</a>
+          </li>
+          <li class="navbar__menu__item hvr-sweep-to-right" id="contact">
+            <a href="#4">Contact Me</a>
+          </li>
+        </ul>
+        <ul class="navbar__menu--mobile">
           <li class="navbar__menu__item" id="home"><a href="#0">Home</a></li>
           <li class="navbar__menu__item" id="about">
             <a href="#1">About Me</a>
@@ -35,33 +54,37 @@
             <a href="#4">Contact Me</a>
           </li>
         </ul>
-        <ul class="navbar__menu--mobile">
-          <li class="navbar__menu__item" id="home"><a href="#0">Home</a></li>
-          <li class="homeavbar__menu__item" id="about">
-            <a href="#1">About Me</a>
-          </li>
-          <li class="navbar__menu__item" id="skills">
-            <a href="#2">My Skills</a>
-          </li>
-          <li class="navbar__menu__item" id="works">
-            <a href="#3">My Works</a>
-          </li>
-          <li class="navbar__menu__item" id="contact">
-            <a href="#4">Contact Me</a>
-          </li>
-        </ul>
       </nav>
     </header>
-    <div data-scroll-container class="container">
+    <main data-scroll-container class="container">
       <section class="section section--home" id="0" data-scroll-section>
         <article class="section--home__content">
-          <h1 class="section--home__content__text">Sunjoo Hwang</h1>
-          <h1 class="section--home__content__text">Web Developer</h1>
+          <h1
+            class="section--home__content__text home__title1 hvr-sweep-to-right"
+            data-scroll-class="lazy-up"
+            data-scroll
+            data-scroll-repeat="true"
+          >
+            Sunjoo Hwang
+          </h1>
+          <h1
+            class="section--home__content__text home__title2 hvr-sweep-to-right"
+            data-scroll-class="lazy-up"
+            data-scroll
+            data-scroll-repeat="true"
+          >
+            Web Developer
+          </h1>
         </article>
       </section>
-      <section class="section section--about" id="1" data-scroll-section>
+      <section class="section section--about" data-scroll-section>
         <div class="section--about__content">
-          <article class="section--about__text">
+          <article
+            class="section--about__text"
+            data-scroll-class="lazy-up"
+            data-scroll
+            data-scroll-repeat="true"
+          >
             <h1 class="about__title1">ABOUT ME</h1>
             <h1 class="about__title2">WHO AM I?</h1>
             <p class="about__para">
@@ -71,80 +94,104 @@
             </p>
           </article>
           <div class="section--about__picture">
-            <img src="./img/about--square.jpg" alt="about section image" />
+            <img
+              src="./img/about--square.jpg"
+              data-scroll-class="lazy-up"
+              data-scroll
+              data-scroll-repeat="true"
+              alt="about section image"
+            />
           </div>
         </div>
       </section>
       <section class="section section--skills" id="2" data-scroll-section>
         <div class="section--skills__content">
-          <div class="section--skills__title">
+          <div
+            class="section--skills__title"
+            data-scroll-class="lazy-up"
+            data-scroll
+            data-scroll-repeat="true"
+          >
             <h1 class="skills__title1">SKILLS</h1>
             <h1 class="skills__title2">WHAT AM I GOOD AT?</h1>
           </div>
           <!-- Slider main container -->
-          <div class="swiper-container skills__slider">
+          <div
+            class="swiper-container skills__slider"
+            data-scroll-class="lazy-up"
+            data-scroll
+            data-scroll-repeat="true"
+          >
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
               <!-- Slides -->
               <div class="swiper-slide skills__slide">
-                <div class="skills__slide__icon">
-                  <i class="fab fa-html5"></i>
+                <div class="skills__slide__icon hvr-outline-out hvr-icon-grow">
+                  <i class="fab fa-html5 hvr-icon"></i>
                   <h1>HTML</h1>
                 </div>
               </div>
               <div class="swiper-slide skills__slide">
-                <div class="skills__slide__icon">
-                  <i class="fab fa-html5"></i>
-                  <h1>HTML</h1>
+                <div class="skills__slide__icon hvr-outline-out hvr-icon-grow">
+                  <i class="fab fa-css3-alt hvr-icon"></i>
+                  <h1>CSS</h1>
                 </div>
               </div>
               <div class="swiper-slide skills__slide">
-                <div class="skills__slide__icon">
-                  <i class="fab fa-html5"></i>
-                  <h1>HTML</h1>
+                <div class="skills__slide__icon hvr-outline-out hvr-icon-grow">
+                  <i class="fab fa-js hvr-icon"></i>
+                  <h1>JavaScript</h1>
                 </div>
               </div>
               <div class="swiper-slide skills__slide">
-                <div class="skills__slide__icon">
-                  <i class="fab fa-html5"></i>
-                  <h1>HTML</h1>
+                <div class="skills__slide__icon hvr-outline-out hvr-icon-grow">
+                  <i class="fab fa-react hvr-icon"></i>
+                  <h1>React</h1>
                 </div>
               </div>
               <div class="swiper-slide skills__slide">
-                <div class="skills__slide__icon">
-                  <i class="fab fa-html5"></i>
-                  <h1>HTML</h1>
+                <div class="skills__slide__icon hvr-outline-out hvr-icon-grow">
+                  <i class="fab fa-php hvr-icon"></i>
+                  <h1>PHP</h1>
                 </div>
               </div>
               <div class="swiper-slide skills__slide">
-                <div class="skills__slide__icon">
-                  <i class="fab fa-html5"></i>
-                  <h1>HTML</h1>
+                <div class="skills__slide__icon hvr-outline-out hvr-icon-grow">
+                  <i class="fab fa-sass hvr-icon"></i>
+                  <h1>Sass</h1>
                 </div>
               </div>
               <div class="swiper-slide skills__slide">
-                <div class="skills__slide__icon">
-                  <i class="fab fa-html5"></i>
-                  <h1>HTML</h1>
+                <div class="skills__slide__icon hvr-outline-out hvr-icon-grow">
+                  <i class="fab fa-git hvr-icon"></i>
+                  <h1>git</h1>
                 </div>
               </div>
               <div class="swiper-slide skills__slide">
-                <div class="skills__slide__icon">
-                  <i class="fab fa-html5"></i>
-                  <h1>HTML</h1>
+                <div class="skills__slide__icon hvr-outline-out hvr-icon-grow">
+                  <i class="fab fa-github hvr-icon"></i>
+                  <h1>GitHub</h1>
                 </div>
               </div>
               <div class="swiper-slide skills__slide">
-                <div class="skills__slide__icon">
-                  <i class="fab fa-html5"></i>
-                  <h1>HTML</h1>
+                <div class="skills__slide__icon hvr-outline-out hvr-icon-grow">
+                  <i class="fas fa-code hvr-icon"></i>
+                  <h1>MySQL</h1>
                 </div>
               </div>
-              ...
+              <div class="swiper-slide skills__slide">
+                <div class="skills__slide__icon hvr-outline-out hvr-icon-grow">
+                  <i class="fas fa-dollar-sign hvr-icon"></i>
+                  <h1>jQuery</h1>
+                </div>
+              </div>
+              <div class="swiper-slide skills__slide">
+                <div class="skills__slide__icon hvr-outline-out hvr-icon-grow">
+                  <i class="fas fa-box-open hvr-icon"></i>
+                  <h1>Parcel</h1>
+                </div>
+              </div>
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <!-- If we need pagination -->
             <div class="swiper-pagination"></div>
           </div>
         </div>
@@ -159,7 +206,7 @@
         id="4"
         data-scroll-section
       ></section>
-    </div>
+    </main>
     <script src="./js/index.js"></script>
   </body>
 </html>

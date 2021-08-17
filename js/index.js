@@ -8,13 +8,6 @@ import "swiper/swiper-bundle.css";
 
 const homeSection = document.querySelector(".section--home");
 
-const sectionsIntersected = [
-  document.querySelector(".section--about"),
-  document.querySelector(".section--skills"),
-  document.querySelector(".section--works"),
-  document.querySelector(".section--contact"),
-];
-
 const header = document.querySelector(".header");
 const navItems = document.querySelectorAll(".navbar__menu__item");
 const sections = document.querySelectorAll(".section");
@@ -24,11 +17,10 @@ const navMobile = document.querySelector(".navbar__menu--mobile");
 const scroll = new LocomotiveScroll({
   el: document.querySelector("[data-scroll-container]"),
   smooth: true,
-  multiplier: 2,
 });
 
 const headerOptions = {
-  root: null,
+  root: document.querySelector(".container"),
   threshold: 0.3,
 };
 
@@ -64,9 +56,13 @@ const navCallback = (entries, observer) => {
     if (entry.isIntersecting) {
       const navItem = navItems[entry.target.id];
       navItem.classList.add("item--active");
+      navItem.classList.remove("hvr-sweep-to-right");
+      navItem.classList.add("hvr-sweep-to-right--white");
       Object.values(navItems).forEach((item) => {
         if (item != navItem) {
-          item.classList.remove("item--active");
+          navItem.classList.remove("item--active");
+          navItem.classList.add("hvr-sweep-to-right");
+          navItem.classList.remove("hvr-sweep-to-right--white");
         }
       });
     }
@@ -77,8 +73,8 @@ const observeHeader = new IntersectionObserver(headerCallback, headerOptions);
 const observeNav = new IntersectionObserver(navCallback, navOptions);
 const observeHome = new IntersectionObserver(homeCallback, headerOptions);
 
-sectionsIntersected.forEach((section) => observeHeader.observe(section));
-observeHome.observe(homeSection);
+// sections.forEach((section) => observeHeader.observe(section));
+// observeHome.observe(homeSection);
 
 // observeHeader.observe(aboutSection);
 sections.forEach((section) => observeNav.observe(section));
@@ -90,16 +86,13 @@ hamburger.addEventListener("click", () => {
 SwiperCore.use([Navigation, Pagination]);
 
 const swiper = new Swiper(".skills__slider", {
-  slidesPerView: 3,
+  slidesPerView: 4,
   slidesPerColumn: 2,
-  spaceBetween: 30,
+  slidesPerGroup: 8,
+  spaceBetween: 0,
   slidesPerColumnFill: "row",
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
   },
 });
