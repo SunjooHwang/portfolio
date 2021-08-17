@@ -1,12 +1,11 @@
-import { rosybrown } from "color-name";
 import LocomotiveScroll from "locomotive-scroll";
 import Swiper from "swiper";
 import SwiperCore, { Navigation, Pagination } from "swiper/core";
+gsap.registerPlugin(ScrollTrigger);
 
 // configure Swiper to use modules
 import "swiper/swiper-bundle.css";
 
-const homeSection = document.querySelector(".section--home");
 const aboutSection = document.querySelector(".section--about");
 
 const header = document.querySelector(".header");
@@ -15,11 +14,61 @@ const sections = document.querySelectorAll(".section");
 const hamburger = document.querySelector(".navbar__hamburger");
 const navMobile = document.querySelector(".navbar__menu--mobile");
 
+const headerClasses = ["header--opaque", "header--transparent"];
+
+const mainContainer = document.querySelector(".container");
+
+const headerToggle = function () {
+  console.log("toggle");
+  headerClasses.forEach((headerClass) => header.classList.toggle(headerClass));
+};
+
 const scroll = new LocomotiveScroll({
-  el: document.querySelector("[data-scroll-container]"),
+  el: document.querySelector(".container"),
   smooth: true,
-  multiplier: 2,
 });
+
+// each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
+scroll.on("scroll", () => {
+  ScrollTrigger.update;
+});
+
+// tell ScrollTrigger to use these proxy methods for the ".container" element since Locomotive Scroll is hijacking things
+ScrollTrigger.scrollerProxy(".container", {
+  scrollTop(value) {
+    return arguments.length
+      ? scroll.scrollTo(value, 0, 0)
+      : scroll.scroll.instance.scroll.y;
+  }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+  getBoundingClientRect() {
+    return {
+      top: 0,
+      left: 0,
+      width: window.innerWidth,
+      height: window.innerHeight,
+    };
+  },
+  // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+  pinType: document.querySelector(".container").style.transform
+    ? "transform"
+    : "fixed",
+});
+
+gsap.to(header, {
+  scrollTrigger: {
+    trigger: aboutSection,
+    start: "top 70",
+    onEnter: headerToggle,
+    onLeaveBack: headerToggle,
+    scroller: ".container",
+  },
+});
+
+// each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll.
+ScrollTrigger.addEventListener("refresh", () => scroll.update());
+
+// after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
+ScrollTrigger.refresh();
 
 const navOptions = {
   root: null,
@@ -46,7 +95,6 @@ const navCallback = (entries, observer) => {
 };
 
 const observeNav = new IntersectionObserver(navCallback, navOptions);
-
 sections.forEach((section) => observeNav.observe(section));
 
 hamburger.addEventListener("click", () => {
@@ -64,29 +112,5 @@ const swiper = new Swiper(".skills__slider", {
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
-  },
-});
-
-// ScrollTrigger.create({
-//   target: "#1",
-//   start: "top top",
-//   end: 99999,
-//   markers: true,
-//   toggleClass: { className: "header--opaque", targets: ".header" },
-// });
-
-const headerClasses = ["header--opaque", "header--transparent"];
-
-const headerToggle = function () {
-  console.log("toggle");
-  headerClasses.forEach((headerClass) => header.classList.toggle(headerClass));
-};
-
-gsap.to(header, {
-  scrollTrigger: {
-    trigger: aboutSection,
-    start: "top 70",
-    onEnter: headerToggle,
-    onLeaveBack: headerToggle,
   },
 });
