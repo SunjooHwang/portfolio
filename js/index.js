@@ -104,13 +104,19 @@ hamburger.addEventListener("click", () => {
 SwiperCore.use([Navigation, Pagination]);
 
 const swiper = new Swiper(".skills__slider", {
-  slidesPerView: 4,
+  slidesPerView: 3,
   slidesPerColumn: 2,
-  slidesPerGroup: 8,
   spaceBetween: 0,
   slidesPerColumnFill: "row",
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
+  },
+  breakpoints: {
+    767: {
+      slidesPerView: 4,
+      slidesPerColumn: 2,
+      slidesPerGroup: 8,
+    },
   },
 });

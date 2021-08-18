@@ -15730,14 +15730,20 @@ hamburger.addEventListener("click", function () {
 _core.default.use([_core.Navigation, _core.Pagination]);
 
 var swiper = new _swiper.default(".skills__slider", {
-  slidesPerView: 4,
+  slidesPerView: 3,
   slidesPerColumn: 2,
-  slidesPerGroup: 8,
   spaceBetween: 0,
   slidesPerColumnFill: "row",
   pagination: {
     el: ".swiper-pagination",
     clickable: true
+  },
+  breakpoints: {
+    767: {
+      slidesPerView: 4,
+      slidesPerColumn: 2,
+      slidesPerGroup: 8
+    }
   }
 });
 },{"locomotive-scroll":"node_modules/locomotive-scroll/dist/locomotive-scroll.esm.js","swiper":"node_modules/swiper/swiper.esm.js","swiper/core":"node_modules/swiper/swiper.esm.js","swiper/swiper-bundle.css":"node_modules/swiper/swiper-bundle.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -15768,7 +15774,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58610" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52998" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
