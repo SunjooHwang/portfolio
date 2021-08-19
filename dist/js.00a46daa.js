@@ -15729,20 +15729,36 @@ hamburger.addEventListener("click", function () {
 
 _core.default.use([_core.Navigation, _core.Pagination]);
 
-var swiper = new _swiper.default(".skills__slider", {
+var skillsSlider = new _swiper.default(".skills__slider", {
   slidesPerView: 3,
   slidesPerColumn: 2,
   spaceBetween: 0,
   slidesPerColumnFill: "row",
   pagination: {
-    el: ".swiper-pagination",
-    clickable: true
+    el: ".skills__pagination",
+    clickable: true,
+    dynamicBullets: true
   },
   breakpoints: {
     767: {
       slidesPerView: 4,
       slidesPerColumn: 2,
       slidesPerGroup: 8
+    }
+  }
+});
+var worksSlider = new _swiper.default(".works__slider", {
+  // direction: "vertical",
+  slidesPerView: 1,
+  pagination: {
+    el: ".works__pagination",
+    dynamicBullets: true
+  },
+  breakpoints: {
+    767: {
+      slidesPerView: 2,
+      spaceBetween: 30,
+      slidesPerGroup: 2
     }
   }
 });

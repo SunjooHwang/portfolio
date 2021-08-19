@@ -380,11 +380,12 @@ p {
 }
 
 .section--works__content .section--works__title {
-  height: 20%;
   text-align: center;
 
   opacity: 0;
   transform: translateY(100px);
+
+  margin-bottom: 5vh;
 }
 .section--works__content .section--works__title h1 {
   color: var(--main-black-col);
@@ -396,6 +397,105 @@ p {
 
 .section--works__title .works__title2 {
   margin-bottom: 2rem;
+}
+
+.section--works__content .works__slider {
+  width: 90vw;
+  height: 80vh;
+
+  display: flex;
+  justify-content: center;
+
+  opacity: 0;
+  transform: translateY(100px);
+}
+.section--works__content .works__slider .works__slider__wrapper {
+  height: 90%;
+  width: 100%;
+}
+
+.section--works__content .works__slider .works__slide {
+  background: var(--main-dark-col);
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  border-radius: 1rem;
+}
+.section--works__content .works__slider .works__slide .works__slide__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.section--works__content
+  .works__slider
+  .works__slide
+  .works__slide__content
+  h1 {
+  color: var(--main-bg-col);
+  font-size: 2.2rem;
+  margin: 1.5rem 0;
+}
+
+.section--works__content
+  .works__slider
+  .works__slide
+  .works__slide__content
+  .works__slide__picture-wrapper {
+  width: 90%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.section--works__content
+  .works__slider
+  .works__slide
+  .works__slide__content
+  .works__slide__picture-wrapper
+  .works__slide__picture {
+  transition: all 0.5s ease-in-out;
+  width: 100%;
+}
+
+.section--works__content
+  .works__slider
+  .works__slide
+  .works__slide__content
+  .works__slide__picture:hover {
+  transform: scale(1.1);
+}
+
+.section--works__content
+  .works__slider
+  .works__slide
+  .works__slide__content
+  .works__slide__btns-wrapper {
+  margin-top: 1rem;
+  width: 32rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.works__slide__btns-wrapper .works__slide__btn {
+  padding: 1rem;
+  width: 15rem;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--main-bg-col);
+  display: flex;
+}
+
+.works__slide__btns-wrapper .works__slide__btn a {
+  height: 100%;
+  width: 100%;
+  font-size: 1.6rem;
+  color: var(--main-bg-col);
+}
+
+.section--works__content .works__slider .works__slide .works__slide__content p {
+  color: var(--main-bg-col);
+  font-size: 1.6rem;
+  margin: 1.5rem 0;
 }
 
 .section--contact {
