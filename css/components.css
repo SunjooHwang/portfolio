@@ -18,6 +18,7 @@ body {
 .section {
   height: 100vh;
   width: 100vw;
+  overflow-y: hidden !important;
 }
 
 ul {
@@ -496,6 +497,12 @@ p {
   font-size: 2rem;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.section--contact__content .contact__mail__submit:hover {
+  background: var(--main-dark-col);
+  color: var(--main-bg-col);
 }
 
 /*
@@ -528,7 +535,8 @@ p {
   .header .header--mobile {
     display: flex;
     margin: 0 auto;
-    width: 90vw;
+    width: 100%;
+    padding: 0 2rem;
     height: 10vh;
     justify-content: space-between;
     align-items: center;
@@ -701,7 +709,7 @@ p {
 
   .section--about__content .section--about__info .section--about__info__item {
     padding: 1rem 2rem;
-    width: 30rem;
+    width: 100%;
   }
   .section--about__content
     .section--about__info
@@ -710,7 +718,7 @@ p {
   }
 
   .section--skills__content {
-    padding: 1rem 0;
+    padding: 10vh 0;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -735,5 +743,63 @@ p {
   .section--skills__content .skills__slider .swiper-pagination-bullet {
     width: 0.7rem;
     height: 0.7rem;
+  }
+
+  .section--contact .section--contact__content {
+    padding-top: 5vh;
+    width: 100%;
+    height: 90%;
+    display: grid;
+    grid-template-rows: 10% 25% 55%;
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "title"
+      "contact"
+      "mail";
+  }
+
+  .section--contact .section--contact__content .section--contact__title {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+
+  .section--contact__content .section--contact__info {
+    align-items: center;
+  }
+
+  .section--contact__content .section--contact__info__item {
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    width: 90%;
+  }
+
+  .section--contact__content .contact__mail {
+    align-items: center;
+  }
+  .section--contact__content .contact__mail input {
+    border-radius: 1rem;
+    border: 1px solid #fff;
+    width: 90%;
+  }
+
+  .section--contact__content .contact__mail__name {
+    padding: 0 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .section--contact__content .contact__mail__address {
+    padding: 0 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .section--contact__content .contact__mail__message {
+    padding: 0 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .section--contact__content .contact__mail__submit {
+    padding: 1.5rem 0;
+  }
+
+  .section--contact__content .contact__mail__submit:hover {
+    background: var(--main-dark-col);
+    color: var(--main-bg-col);
   }
 }
