@@ -219,7 +219,9 @@
                 </div>
               </li>
             </ul>
-            <div class="swiper-pagination skills__pagination"></div>
+            <div
+              class="swiper-pagination slider__pagination skills__pagination"
+            ></div>
           </div>
         </div>
       </section>
@@ -250,14 +252,18 @@
                       src="./img/placeholder.jpg"
                       alt="works image"
                     />
-                  </div>
-                  <div class="works__slide__btns-wrapper">
-                    <button class="works__slide__btn">
-                      <a href="#">GitHub</a>
-                    </button>
-                    <button class="works__slide__btn">
-                      <a href="#">Demo</a>
-                    </button>
+                    <div class="works__slide__btns-wrapper">
+                      <button
+                        class="works__slide__btn hvr-sweep-to-right--white"
+                      >
+                        <a href="#"> <i class="fab fa-github-alt"></i> </a>
+                      </button>
+                      <button
+                        class="works__slide__btn hvr-sweep-to-right--white"
+                      >
+                        <a href="#"><i class="fas fa-desktop"></i></a>
+                      </button>
+                    </div>
                   </div>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -275,14 +281,18 @@
                       src="./img/placeholder.jpg"
                       alt="works image"
                     />
-                  </div>
-                  <div class="works__slide__btns-wrapper">
-                    <button class="works__slide__btn">
-                      <a href="#">GitHub</a>
-                    </button>
-                    <button class="works__slide__btn">
-                      <a href="#">Demo</a>
-                    </button>
+                    <div class="works__slide__btns-wrapper">
+                      <button
+                        class="works__slide__btn hvr-sweep-to-right--white"
+                      >
+                        <a href="#"> <i class="fab fa-github-alt"></i> </a>
+                      </button>
+                      <button
+                        class="works__slide__btn hvr-sweep-to-right--white"
+                      >
+                        <a href="#"><i class="fas fa-desktop"></i></a>
+                      </button>
+                    </div>
                   </div>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -300,14 +310,18 @@
                       src="./img/placeholder.jpg"
                       alt="works image"
                     />
-                  </div>
-                  <div class="works__slide__btns-wrapper">
-                    <button class="works__slide__btn">
-                      <a href="#">GitHub</a>
-                    </button>
-                    <button class="works__slide__btn">
-                      <a href="#">Demo</a>
-                    </button>
+                    <div class="works__slide__btns-wrapper">
+                      <button
+                        class="works__slide__btn hvr-sweep-to-right--white"
+                      >
+                        <a href="#"> <i class="fab fa-github-alt"></i> </a>
+                      </button>
+                      <button
+                        class="works__slide__btn hvr-sweep-to-right--white"
+                      >
+                        <a href="#"><i class="fas fa-desktop"></i></a>
+                      </button>
+                    </div>
                   </div>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -317,7 +331,9 @@
                 </artcle>
               </li>
             </ul>
-            <div class="swiper-pagination works__pagination"></div>
+            <div
+              class="swiper-pagination slider__pagination works__pagination"
+            ></div>
           </div>
         </div>
       </section>
@@ -361,13 +377,14 @@
             data-scroll-class="lazy-up"
             data-scroll
             data-scroll-repeat="true"
+            onsubmit="sendMail(); return false"
           >
             <input
               type="text"
               name=""
-              id="contact__mail__name"
-              class="contact__mail__name"
-              placeholder="name"
+              id="contact__mail__subject"
+              class="contact__mail__subject"
+              placeholder="subject"
             />
             <input
               type="email"

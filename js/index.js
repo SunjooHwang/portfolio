@@ -137,3 +137,23 @@ const worksSlider = new Swiper(".works__slider", {
     },
   },
 });
+
+const mailData = {
+  service_id: "service_etoh47v",
+  template_id: "template_bwtgrds",
+  user_id: "user_poIv8MFe13Qt8NqiRqneG",
+};
+
+const sendMail = function () {
+  ajax("https://api.emailjs.com/api/v1.0/email/send", {
+    type: "POST",
+    data: JSON.stringify(mailData),
+    contentType: "application/json",
+  })
+    .done(function () {
+      alert("Your mail is sent!");
+    })
+    .fail(function (error) {
+      alert("Oops... " + JSON.stringify(error));
+    });
+};

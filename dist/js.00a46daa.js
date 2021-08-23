@@ -15762,6 +15762,23 @@ var worksSlider = new _swiper.default(".works__slider", {
     }
   }
 });
+var mailData = {
+  service_id: "service_etoh47v",
+  template_id: "template_bwtgrds",
+  user_id: "user_poIv8MFe13Qt8NqiRqneG"
+};
+
+var sendMail = function sendMail() {
+  ajax("https://api.emailjs.com/api/v1.0/email/send", {
+    type: "POST",
+    data: JSON.stringify(mailData),
+    contentType: "application/json"
+  }).done(function () {
+    alert("Your mail is sent!");
+  }).fail(function (error) {
+    alert("Oops... " + JSON.stringify(error));
+  });
+};
 },{"locomotive-scroll":"node_modules/locomotive-scroll/dist/locomotive-scroll.esm.js","swiper":"node_modules/swiper/swiper.esm.js","swiper/core":"node_modules/swiper/swiper.esm.js","swiper/swiper-bundle.css":"node_modules/swiper/swiper-bundle.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -15790,7 +15807,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53509" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59196" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

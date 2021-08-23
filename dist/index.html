@@ -175,7 +175,7 @@
                 </div>
               </li>
             </ul>
-            <div class="swiper-pagination skills__pagination"></div>
+            <div class="swiper-pagination slider__pagination skills__pagination"></div>
           </div>
         </div>
       </section>
@@ -192,14 +192,14 @@
                   <h1>To Do App</h1>
                   <div class="works__slide__picture-wrapper">
                     <img class="works__slide__picture" src="/placeholder.38433b7d.jpg" alt="works image">
-                  </div>
-                  <div class="works__slide__btns-wrapper">
-                    <button class="works__slide__btn">
-                      <a href="#">GitHub</a>
-                    </button>
-                    <button class="works__slide__btn">
-                      <a href="#">Demo</a>
-                    </button>
+                    <div class="works__slide__btns-wrapper">
+                      <button class="works__slide__btn hvr-sweep-to-right--white">
+                        <a href="#"> <i class="fab fa-github-alt"></i> </a>
+                      </button>
+                      <button class="works__slide__btn hvr-sweep-to-right--white">
+                        <a href="#"><i class="fas fa-desktop"></i></a>
+                      </button>
+                    </div>
                   </div>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -213,14 +213,14 @@
                   <h1>Forkify</h1>
                   <div class="works__slide__picture-wrapper">
                     <img class="works__slide__picture" src="/placeholder.38433b7d.jpg" alt="works image">
-                  </div>
-                  <div class="works__slide__btns-wrapper">
-                    <button class="works__slide__btn">
-                      <a href="#">GitHub</a>
-                    </button>
-                    <button class="works__slide__btn">
-                      <a href="#">Demo</a>
-                    </button>
+                    <div class="works__slide__btns-wrapper">
+                      <button class="works__slide__btn hvr-sweep-to-right--white">
+                        <a href="#"> <i class="fab fa-github-alt"></i> </a>
+                      </button>
+                      <button class="works__slide__btn hvr-sweep-to-right--white">
+                        <a href="#"><i class="fas fa-desktop"></i></a>
+                      </button>
+                    </div>
                   </div>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -234,14 +234,14 @@
                   <h1>To Do App</h1>
                   <div class="works__slide__picture-wrapper">
                     <img class="works__slide__picture" src="/placeholder.38433b7d.jpg" alt="works image">
-                  </div>
-                  <div class="works__slide__btns-wrapper">
-                    <button class="works__slide__btn">
-                      <a href="#">GitHub</a>
-                    </button>
-                    <button class="works__slide__btn">
-                      <a href="#">Demo</a>
-                    </button>
+                    <div class="works__slide__btns-wrapper">
+                      <button class="works__slide__btn hvr-sweep-to-right--white">
+                        <a href="#"> <i class="fab fa-github-alt"></i> </a>
+                      </button>
+                      <button class="works__slide__btn hvr-sweep-to-right--white">
+                        <a href="#"><i class="fas fa-desktop"></i></a>
+                      </button>
+                    </div>
                   </div>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -251,7 +251,7 @@
                 </artcle>
               </li>
             </ul>
-            <div class="swiper-pagination works__pagination"></div>
+            <div class="swiper-pagination slider__pagination works__pagination"></div>
           </div>
         </div>
       </section>
@@ -277,8 +277,8 @@
               </h2>
             </li>
           </ul>
-          <form action="" class="contact__mail" data-scroll-class="lazy-up" data-scroll="" data-scroll-repeat="true">
-            <input type="text" name="" id="contact__mail__name" class="contact__mail__name" placeholder="name">
+          <form action="" class="contact__mail" data-scroll-class="lazy-up" data-scroll="" data-scroll-repeat="true" onsubmit="sendMail(); return false">
+            <input type="text" name="" id="contact__mail__subject" class="contact__mail__subject" placeholder="subject">
             <input type="email" name="" id="contact__mail__address" class="contact__mail__address" placeholder="email">
             <input type="text" name="" id="contact__mail__message" class="contact__mail__message" placeholder="Please write your message here">
             <input type="submit" value="SUBMIT" id="contact__mail__submit" class="contact__mail__submit">
