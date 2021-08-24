@@ -1,22 +1,26 @@
 import LocomotiveScroll from "locomotive-scroll";
 import Swiper from "swiper";
 import SwiperCore, { Navigation, Pagination } from "swiper/core";
-gsap.registerPlugin(ScrollTrigger);
-
-// configure Swiper to use modules
+import emailjs from "emailjs-com";
+import { init } from "emailjs-com";
 import "swiper/swiper-bundle.css";
 
 const aboutSection = document.querySelector(".section--about");
+const skillsSection = document.querySelector(".section--skills");
 
 const header = document.querySelector(".header");
 const navItems = document.querySelectorAll(".navbar__menu__item");
 const sections = document.querySelectorAll(".section");
 const hamburger = document.querySelector(".navbar__hamburger");
 const navMobile = document.querySelector(".navbar__menu--mobile");
-
 const headerClasses = ["header--opaque", "header--transparent"];
+const mailBtn = document.querySelector(".contact__mail__submit");
 
-const mainContainer = document.querySelector(".container");
+const navAnchors = document.querySelectorAll(".navbar__anchor");
+const navAnchorsMobile = document.querySelectorAll(".navbar__anchor--mobile");
+
+init("user_poIv8MFe13Qt8NqiRqneG");
+gsap.registerPlugin(ScrollTrigger);
 
 const headerToggle = function () {
   console.log("toggle");
@@ -28,18 +32,16 @@ const scroll = new LocomotiveScroll({
   smooth: true,
 });
 
-// each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
 scroll.on("scroll", () => {
   ScrollTrigger.update;
 });
 
-// tell ScrollTrigger to use these proxy methods for the ".container" element since Locomotive Scroll is hijacking things
 ScrollTrigger.scrollerProxy(".container", {
   scrollTop(value) {
     return arguments.length
       ? scroll.scrollTo(value, 0, 0)
       : scroll.scroll.instance.scroll.y;
-  }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+  },
   getBoundingClientRect() {
     return {
       top: 0,
@@ -48,7 +50,7 @@ ScrollTrigger.scrollerProxy(".container", {
       height: window.innerHeight,
     };
   },
-  // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+
   pinType: document.querySelector(".container").style.transform
     ? "transform"
     : "fixed",
@@ -64,10 +66,8 @@ gsap.to(header, {
   },
 });
 
-// each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll.
 ScrollTrigger.addEventListener("refresh", () => scroll.update());
 
-// after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
 ScrollTrigger.refresh();
 
 const navOptions = {
@@ -138,22 +138,30 @@ const worksSlider = new Swiper(".works__slider", {
   },
 });
 
-const mailData = {
-  service_id: "service_etoh47v",
-  template_id: "template_bwtgrds",
-  user_id: "user_poIv8MFe13Qt8NqiRqneG",
+const sendMail = function (e) {
+  e.preventDefault();
+  emailjs
+    .sendForm("service_etoh47v", "template_bwtgrds", "#contact__mail")
+    .then(
+      function (response) {
+        console.log("SUCCESS!", response.status, response.text);
+      },
+      function (error) {
+        console.log("FAILED...", error);
+      }
+    );
 };
 
-const sendMail = function () {
-  ajax("https://api.emailjs.com/api/v1.0/email/send", {
-    type: "POST",
-    data: JSON.stringify(mailData),
-    contentType: "application/json",
-  })
-    .done(function () {
-      alert("Your mail is sent!");
-    })
-    .fail(function (error) {
-      alert("Oops... " + JSON.stringify(error));
-    });
-};
+mailBtn.addEventListener("click", sendMail);
+
+navAnchors.forEach((anchor, i) => {
+  sections.forEach((sec, j) => {
+    if (i == j) anchor.addEventListener("click", scroll.scrollTo(sec));
+  });
+});
+
+navAnchorsMobile.forEach((anchor, i) => {
+  sections.forEach((sec, j) => {
+    if (i == j) anchor.addEventListener("click", scroll.scrollTo(sec));
+  });
+});

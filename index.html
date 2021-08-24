@@ -26,34 +26,36 @@
         <a href="#" class="navbar__brand">Sunjoo Hwang</a>
         <ul class="navbar__menu">
           <li class="navbar__menu__item hvr-sweep-to-right" id="home">
-            <a href="#0">Home</a>
+            <a href="#0" class="navbar__anchor">Home</a>
           </li>
           <li class="navbar__menu__item hvr-sweep-to-right" id="about">
-            <a href="#1">About Me</a>
+            <a href="#1" class="navbar__anchor">About Me</a>
           </li>
           <li class="navbar__menu__item hvr-sweep-to-right" id="skills">
-            <a href="#2">My Skills</a>
+            <a href="#2" class="navbar__anchor">My Skills</a>
           </li>
           <li class="navbar__menu__item hvr-sweep-to-right" id="works">
-            <a href="#3">My Works</a>
+            <a href="#3" class="navbar__anchor">My Works</a>
           </li>
           <li class="navbar__menu__item hvr-sweep-to-right" id="contact">
-            <a href="#4">Contact Me</a>
+            <a href="#4" class="navbar__anchor">Contact Me</a>
           </li>
         </ul>
         <ul class="navbar__menu--mobile">
-          <li class="navbar__menu__item" id="home"><a href="#0">Home</a></li>
+          <li class="navbar__menu__item" id="home">
+            <a href="#0" class="navbar__anchor--mobile">Home</a>
+          </li>
           <li class="navbar__menu__item" id="about">
-            <a href="#1">About Me</a>
+            <a href="#1" class="navbar__anchor--mobile">About Me</a>
           </li>
           <li class="navbar__menu__item" id="skills">
-            <a href="#2">My Skills</a>
+            <a href="#2" class="navbar__anchor--mobile">My Skills</a>
           </li>
           <li class="navbar__menu__item" id="works">
-            <a href="#3">My Works</a>
+            <a href="#3" class="navbar__anchor--mobile">My Works</a>
           </li>
           <li class="navbar__menu__item" id="contact">
-            <a href="#4">Contact Me</a>
+            <a href="#4" class="navbar__anchor--mobile">Contact Me</a>
           </li>
         </ul>
       </nav>
@@ -374,28 +376,28 @@
           <form
             action=""
             class="contact__mail"
+            id="contact__mail"
             data-scroll-class="lazy-up"
             data-scroll
             data-scroll-repeat="true"
-            onsubmit="sendMail(); return false"
           >
             <input
               type="text"
-              name=""
-              id="contact__mail__subject"
-              class="contact__mail__subject"
-              placeholder="subject"
+              name="from_name"
+              id="contact__mail__name"
+              class="contact__mail__name"
+              placeholder="name"
             />
             <input
               type="email"
-              name=""
+              name="email"
               id="contact__mail__address"
               class="contact__mail__address"
               placeholder="email"
             />
             <input
               type="text"
-              name=""
+              name="message"
               id="contact__mail__message"
               class="contact__mail__message"
               placeholder="Please write your message here"

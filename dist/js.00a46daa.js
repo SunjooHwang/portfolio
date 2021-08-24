@@ -15548,7 +15548,250 @@ var _effectCoverflow = _interopRequireDefault(require("./esm/components/effect-c
 var _thumbs = _interopRequireDefault(require("./esm/components/thumbs/thumbs"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./esm/components/core/core-class":"node_modules/swiper/esm/components/core/core-class.js","./esm/components/virtual/virtual":"node_modules/swiper/esm/components/virtual/virtual.js","./esm/components/keyboard/keyboard":"node_modules/swiper/esm/components/keyboard/keyboard.js","./esm/components/mousewheel/mousewheel":"node_modules/swiper/esm/components/mousewheel/mousewheel.js","./esm/components/navigation/navigation":"node_modules/swiper/esm/components/navigation/navigation.js","./esm/components/pagination/pagination":"node_modules/swiper/esm/components/pagination/pagination.js","./esm/components/scrollbar/scrollbar":"node_modules/swiper/esm/components/scrollbar/scrollbar.js","./esm/components/parallax/parallax":"node_modules/swiper/esm/components/parallax/parallax.js","./esm/components/zoom/zoom":"node_modules/swiper/esm/components/zoom/zoom.js","./esm/components/lazy/lazy":"node_modules/swiper/esm/components/lazy/lazy.js","./esm/components/controller/controller":"node_modules/swiper/esm/components/controller/controller.js","./esm/components/a11y/a11y":"node_modules/swiper/esm/components/a11y/a11y.js","./esm/components/history/history":"node_modules/swiper/esm/components/history/history.js","./esm/components/hash-navigation/hash-navigation":"node_modules/swiper/esm/components/hash-navigation/hash-navigation.js","./esm/components/autoplay/autoplay":"node_modules/swiper/esm/components/autoplay/autoplay.js","./esm/components/effect-fade/effect-fade":"node_modules/swiper/esm/components/effect-fade/effect-fade.js","./esm/components/effect-cube/effect-cube":"node_modules/swiper/esm/components/effect-cube/effect-cube.js","./esm/components/effect-flip/effect-flip":"node_modules/swiper/esm/components/effect-flip/effect-flip.js","./esm/components/effect-coverflow/effect-coverflow":"node_modules/swiper/esm/components/effect-coverflow/effect-coverflow.js","./esm/components/thumbs/thumbs":"node_modules/swiper/esm/components/thumbs/thumbs.js"}],"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"./esm/components/core/core-class":"node_modules/swiper/esm/components/core/core-class.js","./esm/components/virtual/virtual":"node_modules/swiper/esm/components/virtual/virtual.js","./esm/components/keyboard/keyboard":"node_modules/swiper/esm/components/keyboard/keyboard.js","./esm/components/mousewheel/mousewheel":"node_modules/swiper/esm/components/mousewheel/mousewheel.js","./esm/components/navigation/navigation":"node_modules/swiper/esm/components/navigation/navigation.js","./esm/components/pagination/pagination":"node_modules/swiper/esm/components/pagination/pagination.js","./esm/components/scrollbar/scrollbar":"node_modules/swiper/esm/components/scrollbar/scrollbar.js","./esm/components/parallax/parallax":"node_modules/swiper/esm/components/parallax/parallax.js","./esm/components/zoom/zoom":"node_modules/swiper/esm/components/zoom/zoom.js","./esm/components/lazy/lazy":"node_modules/swiper/esm/components/lazy/lazy.js","./esm/components/controller/controller":"node_modules/swiper/esm/components/controller/controller.js","./esm/components/a11y/a11y":"node_modules/swiper/esm/components/a11y/a11y.js","./esm/components/history/history":"node_modules/swiper/esm/components/history/history.js","./esm/components/hash-navigation/hash-navigation":"node_modules/swiper/esm/components/hash-navigation/hash-navigation.js","./esm/components/autoplay/autoplay":"node_modules/swiper/esm/components/autoplay/autoplay.js","./esm/components/effect-fade/effect-fade":"node_modules/swiper/esm/components/effect-fade/effect-fade.js","./esm/components/effect-cube/effect-cube":"node_modules/swiper/esm/components/effect-cube/effect-cube.js","./esm/components/effect-flip/effect-flip":"node_modules/swiper/esm/components/effect-flip/effect-flip.js","./esm/components/effect-coverflow/effect-coverflow":"node_modules/swiper/esm/components/effect-coverflow/effect-coverflow.js","./esm/components/thumbs/thumbs":"node_modules/swiper/esm/components/thumbs/thumbs.js"}],"node_modules/emailjs-com/es/store/store.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.store = void 0;
+var store = {
+  _origin: 'https://api.emailjs.com'
+};
+exports.store = store;
+},{}],"node_modules/emailjs-com/es/methods/init/init.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.init = void 0;
+
+var _store = require("../../store/store");
+
+/**
+ * Initiation
+ * @param {string} userID - set the EmailJS user ID
+ * @param {string} origin - set the EmailJS origin
+ */
+var init = function init(userID) {
+  var origin = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'https://api.emailjs.com';
+  _store.store._userID = userID;
+  _store.store._origin = origin;
+};
+
+exports.init = init;
+},{"../../store/store":"node_modules/emailjs-com/es/store/store.js"}],"node_modules/emailjs-com/es/utils/validateParams.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.validateParams = void 0;
+
+var validateParams = function validateParams(userID, serviceID, templateID) {
+  if (!userID) {
+    throw 'The user ID is required. Visit https://dashboard.emailjs.com/admin/integration';
+  }
+
+  if (!serviceID) {
+    throw 'The service ID is required. Visit https://dashboard.emailjs.com/admin';
+  }
+
+  if (!templateID) {
+    throw 'The template ID is required. Visit https://dashboard.emailjs.com/admin/templates';
+  }
+
+  return true;
+};
+
+exports.validateParams = validateParams;
+},{}],"node_modules/emailjs-com/es/models/EmailJSResponseStatus.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.EmailJSResponseStatus = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var EmailJSResponseStatus = function EmailJSResponseStatus(httpResponse) {
+  _classCallCheck(this, EmailJSResponseStatus);
+
+  this.status = httpResponse.status;
+  this.text = httpResponse.responseText;
+};
+
+exports.EmailJSResponseStatus = EmailJSResponseStatus;
+},{}],"node_modules/emailjs-com/es/api/sendPost.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.sendPost = void 0;
+
+var _EmailJSResponseStatus = require("../models/EmailJSResponseStatus");
+
+var _store = require("../store/store");
+
+var sendPost = function sendPost(url, data) {
+  var headers = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+  return new Promise(function (resolve, reject) {
+    var xhr = new XMLHttpRequest();
+    xhr.addEventListener('load', function (_ref) {
+      var target = _ref.target;
+      var responseStatus = new _EmailJSResponseStatus.EmailJSResponseStatus(target);
+
+      if (responseStatus.status === 200 || responseStatus.text === 'OK') {
+        resolve(responseStatus);
+      } else {
+        reject(responseStatus);
+      }
+    });
+    xhr.addEventListener('error', function (_ref2) {
+      var target = _ref2.target;
+      reject(new _EmailJSResponseStatus.EmailJSResponseStatus(target));
+    });
+    xhr.open('POST', _store.store._origin + url, true);
+    Object.keys(headers).forEach(function (key) {
+      xhr.setRequestHeader(key, headers[key]);
+    });
+    xhr.send(data);
+  });
+};
+
+exports.sendPost = sendPost;
+},{"../models/EmailJSResponseStatus":"node_modules/emailjs-com/es/models/EmailJSResponseStatus.js","../store/store":"node_modules/emailjs-com/es/store/store.js"}],"node_modules/emailjs-com/es/methods/send/send.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.send = void 0;
+
+var _store = require("../../store/store");
+
+var _validateParams = require("../../utils/validateParams");
+
+var _sendPost = require("../../api/sendPost");
+
+/**
+ * Send a template to the specific EmailJS service
+ * @param {string} serviceID - the EmailJS service ID
+ * @param {string} templateID - the EmailJS template ID
+ * @param {object} templatePrams - the template params, what will be set to the EmailJS template
+ * @param {string} userID - the EmailJS user ID
+ * @returns {Promise<EmailJSResponseStatus>}
+ */
+var send = function send(serviceID, templateID, templatePrams, userID) {
+  var uID = userID || _store.store._userID;
+  (0, _validateParams.validateParams)(uID, serviceID, templateID);
+  var params = {
+    lib_version: '3.2.0',
+    user_id: uID,
+    service_id: serviceID,
+    template_id: templateID,
+    template_params: templatePrams
+  };
+  return (0, _sendPost.sendPost)('/api/v1.0/email/send', JSON.stringify(params), {
+    'Content-type': 'application/json'
+  });
+};
+
+exports.send = send;
+},{"../../store/store":"node_modules/emailjs-com/es/store/store.js","../../utils/validateParams":"node_modules/emailjs-com/es/utils/validateParams.js","../../api/sendPost":"node_modules/emailjs-com/es/api/sendPost.js"}],"node_modules/emailjs-com/es/methods/sendForm/sendForm.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.sendForm = void 0;
+
+var _store = require("../../store/store");
+
+var _validateParams = require("../../utils/validateParams");
+
+var _sendPost = require("../../api/sendPost");
+
+var findHTMLForm = function findHTMLForm(form) {
+  var currentForm;
+
+  if (typeof form === 'string') {
+    currentForm = document.querySelector(form);
+  } else {
+    currentForm = form;
+  }
+
+  if (!currentForm || currentForm.nodeName !== 'FORM') {
+    throw 'The 3rd parameter is expected to be the HTML form element or the style selector of form';
+  }
+
+  return currentForm;
+};
+/**
+ * Send a form the specific EmailJS service
+ * @param {string} serviceID - the EmailJS service ID
+ * @param {string} templateID - the EmailJS template ID
+ * @param {string | HTMLFormElement} form - the form element or selector
+ * @param {string} userID - the EmailJS user ID
+ * @returns {Promise<EmailJSResponseStatus>}
+ */
+
+
+var sendForm = function sendForm(serviceID, templateID, form, userID) {
+  var uID = userID || _store.store._userID;
+  var currentForm = findHTMLForm(form);
+  (0, _validateParams.validateParams)(uID, serviceID, templateID);
+  var formData = new FormData(currentForm);
+  formData.append('lib_version', '3.2.0');
+  formData.append('service_id', serviceID);
+  formData.append('template_id', templateID);
+  formData.append('user_id', uID);
+  return (0, _sendPost.sendPost)('/api/v1.0/email/send-form', formData);
+};
+
+exports.sendForm = sendForm;
+},{"../../store/store":"node_modules/emailjs-com/es/store/store.js","../../utils/validateParams":"node_modules/emailjs-com/es/utils/validateParams.js","../../api/sendPost":"node_modules/emailjs-com/es/api/sendPost.js"}],"node_modules/emailjs-com/es/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "init", {
+  enumerable: true,
+  get: function () {
+    return _init.init;
+  }
+});
+Object.defineProperty(exports, "send", {
+  enumerable: true,
+  get: function () {
+    return _send.send;
+  }
+});
+Object.defineProperty(exports, "sendForm", {
+  enumerable: true,
+  get: function () {
+    return _sendForm.sendForm;
+  }
+});
+exports.default = void 0;
+
+var _init = require("./methods/init/init");
+
+var _send = require("./methods/send/send");
+
+var _sendForm = require("./methods/sendForm/sendForm");
+
+var _default = {
+  init: _init.init,
+  send: _send.send,
+  sendForm: _sendForm.sendForm
+};
+exports.default = _default;
+},{"./methods/init/init":"node_modules/emailjs-com/es/methods/init/init.js","./methods/send/send":"node_modules/emailjs-com/es/methods/send/send.js","./methods/sendForm/sendForm":"node_modules/emailjs-com/es/methods/sendForm/sendForm.js"}],"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -15629,6 +15872,8 @@ var _swiper = _interopRequireDefault(require("swiper"));
 
 var _core = _interopRequireWildcard(require("swiper/core"));
 
+var _emailjsCom = _interopRequireWildcard(require("emailjs-com"));
+
 require("swiper/swiper-bundle.css");
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -15637,16 +15882,19 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-gsap.registerPlugin(ScrollTrigger); // configure Swiper to use modules
-
 var aboutSection = document.querySelector(".section--about");
+var skillsSection = document.querySelector(".section--skills");
 var header = document.querySelector(".header");
 var navItems = document.querySelectorAll(".navbar__menu__item");
 var sections = document.querySelectorAll(".section");
 var hamburger = document.querySelector(".navbar__hamburger");
 var navMobile = document.querySelector(".navbar__menu--mobile");
 var headerClasses = ["header--opaque", "header--transparent"];
-var mainContainer = document.querySelector(".container");
+var mailBtn = document.querySelector(".contact__mail__submit");
+var navAnchors = document.querySelectorAll(".navbar__anchor");
+var navAnchorsMobile = document.querySelectorAll(".navbar__anchor--mobile");
+(0, _emailjsCom.init)("user_poIv8MFe13Qt8NqiRqneG");
+gsap.registerPlugin(ScrollTrigger);
 
 var headerToggle = function headerToggle() {
   console.log("toggle");
@@ -15658,17 +15906,14 @@ var headerToggle = function headerToggle() {
 var scroll = new _locomotiveScroll.default({
   el: document.querySelector(".container"),
   smooth: true
-}); // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
-
+});
 scroll.on("scroll", function () {
   ScrollTrigger.update;
-}); // tell ScrollTrigger to use these proxy methods for the ".container" element since Locomotive Scroll is hijacking things
-
+});
 ScrollTrigger.scrollerProxy(".container", {
   scrollTop: function scrollTop(value) {
     return arguments.length ? scroll.scrollTo(value, 0, 0) : scroll.scroll.instance.scroll.y;
   },
-  // we don't have to define a scrollLeft because we're only scrolling vertically.
   getBoundingClientRect: function getBoundingClientRect() {
     return {
       top: 0,
@@ -15677,7 +15922,6 @@ ScrollTrigger.scrollerProxy(".container", {
       height: window.innerHeight
     };
   },
-  // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
   pinType: document.querySelector(".container").style.transform ? "transform" : "fixed"
 });
 gsap.to(header, {
@@ -15688,12 +15932,10 @@ gsap.to(header, {
     onLeaveBack: headerToggle,
     scroller: ".container"
   }
-}); // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll.
-
+});
 ScrollTrigger.addEventListener("refresh", function () {
   return scroll.update();
-}); // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
-
+});
 ScrollTrigger.refresh();
 var navOptions = {
   root: null,
@@ -15762,24 +16004,29 @@ var worksSlider = new _swiper.default(".works__slider", {
     }
   }
 });
-var mailData = {
-  service_id: "service_etoh47v",
-  template_id: "template_bwtgrds",
-  user_id: "user_poIv8MFe13Qt8NqiRqneG"
-};
 
-var sendMail = function sendMail() {
-  ajax("https://api.emailjs.com/api/v1.0/email/send", {
-    type: "POST",
-    data: JSON.stringify(mailData),
-    contentType: "application/json"
-  }).done(function () {
-    alert("Your mail is sent!");
-  }).fail(function (error) {
-    alert("Oops... " + JSON.stringify(error));
+var sendMail = function sendMail(e) {
+  e.preventDefault();
+
+  _emailjsCom.default.sendForm("service_etoh47v", "template_bwtgrds", "#contact__mail").then(function (response) {
+    console.log("SUCCESS!", response.status, response.text);
+  }, function (error) {
+    console.log("FAILED...", error);
   });
 };
-},{"locomotive-scroll":"node_modules/locomotive-scroll/dist/locomotive-scroll.esm.js","swiper":"node_modules/swiper/swiper.esm.js","swiper/core":"node_modules/swiper/swiper.esm.js","swiper/swiper-bundle.css":"node_modules/swiper/swiper-bundle.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+mailBtn.addEventListener("click", sendMail);
+navAnchors.forEach(function (anchor, i) {
+  sections.forEach(function (sec, j) {
+    if (i == j) anchor.addEventListener("click", scroll.scrollTo(sec));
+  });
+});
+navAnchorsMobile.forEach(function (anchor, i) {
+  sections.forEach(function (sec, j) {
+    if (i == j) anchor.addEventListener("click", scroll.scrollTo(sec));
+  });
+});
+},{"locomotive-scroll":"node_modules/locomotive-scroll/dist/locomotive-scroll.esm.js","swiper":"node_modules/swiper/swiper.esm.js","swiper/core":"node_modules/swiper/swiper.esm.js","emailjs-com":"node_modules/emailjs-com/es/index.js","swiper/swiper-bundle.css":"node_modules/swiper/swiper-bundle.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -15807,7 +16054,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59196" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56540" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
