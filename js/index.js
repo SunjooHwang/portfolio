@@ -6,9 +6,10 @@ import { init } from "emailjs-com";
 import "swiper/swiper-bundle.css";
 
 const aboutSection = document.querySelector(".section--about");
-const skillsSection = document.querySelector(".section--skills");
 
 const header = document.querySelector(".header");
+const brand = document.querySelector(".navbar__brand");
+const brandMobile = document.querySelector(".navbar__brand--mobile");
 const navItems = document.querySelectorAll(".navbar__menu__item");
 const sections = document.querySelectorAll(".section");
 const hamburger = document.querySelector(".navbar__hamburger");
@@ -156,12 +157,26 @@ mailBtn.addEventListener("click", sendMail);
 
 navAnchors.forEach((anchor, i) => {
   sections.forEach((sec, j) => {
-    if (i == j) anchor.addEventListener("click", scroll.scrollTo(sec));
+    if (i == j)
+      anchor.addEventListener("click", function () {
+        scroll.scrollTo(sec);
+      });
   });
 });
 
 navAnchorsMobile.forEach((anchor, i) => {
   sections.forEach((sec, j) => {
-    if (i == j) anchor.addEventListener("click", scroll.scrollTo(sec));
+    if (i == j)
+      anchor.addEventListener("click", function () {
+        scroll.scrollTo(sec);
+      });
   });
+});
+
+brand.addEventListener("click", function () {
+  scroll.scrollTo(sections[0]);
+});
+
+brandMobile.addEventListener("click", function () {
+  scroll.scrollTo(sections[0]);
 });
