@@ -5,6 +5,7 @@
   --main-black-col: #0b090a;
   --main-dark-col: #232a2f;
   --main-red-col: #ef233c;
+  --main-bule-col: #21d4fd;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Raleway&display=swap");
@@ -146,14 +147,18 @@ a {
 
   opacity: 0;
 }
+.section--home .section--home__content .section--home__content__text:hover {
+  transition: color 0.5s;
+  color: var(--main-bg-col);
+}
 
 .section--home .section--home__content .home__title1 {
   transform: translateY(100px);
-  transition: all 1.5s ease-in-out;
+  transition: transform 1.5s ease-in-out;
 }
 .section--home .section--home__content .home__title2 {
   transform: translateY(150px);
-  transition: all 1.5s ease-in-out;
+  transition: transform 1.5s ease-in-out;
 }
 
 .section--home .section--home__content .lazy-up {
@@ -305,6 +310,7 @@ p {
 
 .section--skills__content .skills__slider {
   width: 100%;
+  max-width: 120rem;
   height: 80%;
 
   opacity: 0;
@@ -312,7 +318,6 @@ p {
 }
 
 .section--skills__content .skills__slider .skills__slide {
-  /* background: black; */
   height: calc((80%) / 2);
   display: flex;
   justify-content: center;
@@ -637,28 +642,8 @@ p {
   color: #fff;
 }
 
-/*
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-*/
 @media screen and (max-width: 768px) {
   .header {
-    /* height: 10vh; */
     display: flex;
     flex-direction: column;
     padding: 0;
@@ -952,93 +937,6 @@ p {
   }
 }
 
-.hvr-rectangle-in {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  position: relative;
-  background: var(--main-grey-col);
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-}
-.hvr-rectangle-in:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--main-bg-col);
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-.hvr-rectangle-in:hover,
-.hvr-rectangle-in:focus,
-.hvr-rectangle-in:active {
-  color: white !important;
-}
-.hvr-rectangle-in:hover:before,
-.hvr-rectangle-in:focus:before,
-.hvr-rectangle-in:active:before {
-  -webkit-transform: scale(0);
-  transform: scale(0);
-}
-
-.hvr-rectangle-out {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  position: relative;
-  /* background: #e1e1e1; */
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-}
-.hvr-rectangle-out:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--main-red-col);
-  -webkit-transform: scale(0);
-  transform: scale(0);
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-.hvr-rectangle-out:hover,
-.hvr-rectangle-out:focus,
-.hvr-rectangle-out:active {
-  color: white;
-}
-
-.hvr-rectangle-out:hover:before,
-.hvr-rectangle-out:focus:before,
-.hvr-rectangle-out:active:before {
-  -webkit-transform: scale(1);
-  transform: scale(1);
-}
-
 .hvr-outline-out {
   display: inline-block;
   vertical-align: middle;
@@ -1092,50 +990,6 @@ p {
   /* Hack to improve aliasing on mobile/tablet devices */
 }
 
-.hvr-sweep-to-top {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  position: relative;
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-}
-.hvr-sweep-to-top:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #2098d1;
-  -webkit-transform: scaleY(0);
-  transform: scaleY(0);
-  -webkit-transform-origin: 50% 100%;
-  transform-origin: 50% 100%;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-.hvr-sweep-to-top:hover,
-.hvr-sweep-to-top:focus,
-.hvr-sweep-to-top:active {
-  color: white;
-}
-.hvr-sweep-to-top:hover:before,
-.hvr-sweep-to-top:focus:before,
-.hvr-sweep-to-top:active:before {
-  -webkit-transform: scaleY(1);
-  transform: scaleY(1);
-}
-
 .hvr-sweep-to-right {
   display: inline-block;
   vertical-align: middle;
@@ -1156,7 +1010,7 @@ p {
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--main-red-col);
+  background: var(--main-dark-col);
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
   -webkit-transform-origin: 0 50%;
@@ -1196,7 +1050,7 @@ p {
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--main-bg-col);
+  background: var(--main-black-col);
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
   -webkit-transform-origin: 0 50%;
@@ -1247,41 +1101,6 @@ h1 {
 .hvr-icon-grow:focus h1,
 .hvr-icon-grow:active h1 {
   transform: translateY(10px);
-}
-
-.hvr-underline-reveal {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  position: relative;
-  overflow: hidden;
-}
-
-.hvr-underline-reveal:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--main-red-col);
-  height: 4px;
-  -webkit-transform: translateY(4px);
-  transform: translateY(4px);
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-.hvr-underline-reveal:hover:before,
-.hvr-underline-reveal:focus:before,
-.hvr-underline-reveal:active:before {
-  -webkit-transform: translateY(0);
-  transform: translateY(0);
 }
 
 .hvr-grow {
