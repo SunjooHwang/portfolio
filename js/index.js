@@ -172,7 +172,7 @@ const sendMail = function () {
 };
 
 mailBtn.addEventListener("click", function (e) {
-  sendMail;
+  sendMail();
   modalSuccess.classList.remove("modal--hidden");
   e.preventDefault();
   setTimeout(renderSpinner, 2000);
