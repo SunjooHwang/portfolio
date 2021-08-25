@@ -648,7 +648,7 @@ p {
   z-index: 10;
   position: fixed;
   top: 20vh;
-  left: calc(100vh - 25rem);
+  left: calc((90vw - 30rem) / 2);
 
   transition: 0.3s all;
 
@@ -989,6 +989,29 @@ p {
     background: var(--main-dark-col);
     color: var(--main-bg-col);
   }
+
+  .modal {
+    width: 35rem;
+    height: 30rem;
+
+    top: 30vh;
+    left: calc((100vw - 35rem) / 2);
+
+    padding: 0 2rem;
+  }
+
+  .modal span {
+    font-size: 1.6rem;
+  }
+
+  .modal--spinner {
+    position: absolute;
+    transition: all 0.5s;
+  }
+
+  .modal .modal__close-btn {
+    font-size: 1.6rem;
+  }
 }
 
 .hvr-outline-out {
@@ -1035,13 +1058,11 @@ p {
   -webkit-transition-property: box-shadow;
   transition-property: box-shadow;
   box-shadow: inset 0 0 0 4px rgba(0, 0, 0, 0), 0 0 1px rgba(0, 0, 0, 0);
-  /* Hack to improve aliasing on mobile/tablet devices */
 }
 .hvr-border-fade:hover,
 .hvr-border-fade:focus,
 .hvr-border-fade:active {
   box-shadow: inset 0 0 0 4px var(--main-bg-col), 0 0 1px rgba(0, 0, 0, 0);
-  /* Hack to improve aliasing on mobile/tablet devices */
 }
 
 .hvr-sweep-to-right {

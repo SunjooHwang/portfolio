@@ -9,20 +9,22 @@ import "regenerator-runtime/runtime";
 init("user_poIv8MFe13Qt8NqiRqneG");
 gsap.registerPlugin(ScrollTrigger);
 
+const header = document.querySelector(".header");
+const sections = document.querySelectorAll(".section");
+
 const aboutSection = document.querySelector(".section--about");
 
-const header = document.querySelector(".header");
 const brand = document.querySelector(".navbar__brand");
 const brandMobile = document.querySelector(".navbar__brand--mobile");
 const navItems = document.querySelectorAll(".navbar__menu__item");
-const sections = document.querySelectorAll(".section");
 const hamburger = document.querySelector(".navbar__hamburger");
 const navMobile = document.querySelector(".navbar__menu--mobile");
-const headerClasses = ["header--opaque", "header--transparent"];
-const mailBtn = document.querySelector(".contact__mail__submit");
-
 const navAnchors = document.querySelectorAll(".navbar__anchor");
 const navAnchorsMobile = document.querySelectorAll(".navbar__anchor--mobile");
+
+const headerClasses = ["header--opaque", "header--transparent"];
+
+const mailBtn = document.querySelector(".contact__mail__submit");
 
 const modalSuccess = document.querySelector(".modal--success");
 const modalError = document.querySelector(".modal--error");
@@ -30,11 +32,6 @@ const closeSuccessBtn = document.getElementById("modal--success__btn");
 const closeErrorBtn = document.getElementById("modal--error__btn");
 const spinner = document.querySelector(".modal--spinner");
 const modalMessage = document.getElementById("modal--success__message");
-
-const headerToggle = function () {
-  console.log("toggle");
-  headerClasses.forEach((headerClass) => header.classList.toggle(headerClass));
-};
 
 const scroll = new LocomotiveScroll({
   el: document.querySelector(".container"),
@@ -65,6 +62,11 @@ ScrollTrigger.scrollerProxy(".container", {
     : "fixed",
 });
 
+const headerToggle = function () {
+  console.log("toggle");
+  headerClasses.forEach((headerClass) => header.classList.toggle(headerClass));
+};
+
 gsap.to(header, {
   scrollTrigger: {
     trigger: aboutSection,
@@ -78,12 +80,6 @@ gsap.to(header, {
 ScrollTrigger.addEventListener("refresh", () => scroll.update());
 
 ScrollTrigger.refresh();
-
-const navOptions = {
-  root: null,
-  rootMargin: "0px",
-  threshold: 0.7,
-};
 
 const navCallback = (entries, observer) => {
   entries.forEach((entry) => {
@@ -101,6 +97,12 @@ const navCallback = (entries, observer) => {
       });
     }
   });
+};
+
+const navOptions = {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.7,
 };
 
 const observeNav = new IntersectionObserver(navCallback, navOptions);
@@ -132,7 +134,6 @@ const skillsSlider = new Swiper(".skills__slider", {
 });
 
 const worksSlider = new Swiper(".works__slider", {
-  // direction: "vertical",
   slidesPerView: 1,
   pagination: {
     el: ".works__pagination",

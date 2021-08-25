@@ -16647,32 +16647,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 (0, _emailjsCom.init)("user_poIv8MFe13Qt8NqiRqneG");
 gsap.registerPlugin(ScrollTrigger);
-var aboutSection = document.querySelector(".section--about");
 var header = document.querySelector(".header");
+var sections = document.querySelectorAll(".section");
+var aboutSection = document.querySelector(".section--about");
 var brand = document.querySelector(".navbar__brand");
 var brandMobile = document.querySelector(".navbar__brand--mobile");
 var navItems = document.querySelectorAll(".navbar__menu__item");
-var sections = document.querySelectorAll(".section");
 var hamburger = document.querySelector(".navbar__hamburger");
 var navMobile = document.querySelector(".navbar__menu--mobile");
-var headerClasses = ["header--opaque", "header--transparent"];
-var mailBtn = document.querySelector(".contact__mail__submit");
 var navAnchors = document.querySelectorAll(".navbar__anchor");
 var navAnchorsMobile = document.querySelectorAll(".navbar__anchor--mobile");
+var headerClasses = ["header--opaque", "header--transparent"];
+var mailBtn = document.querySelector(".contact__mail__submit");
 var modalSuccess = document.querySelector(".modal--success");
 var modalError = document.querySelector(".modal--error");
 var closeSuccessBtn = document.getElementById("modal--success__btn");
 var closeErrorBtn = document.getElementById("modal--error__btn");
 var spinner = document.querySelector(".modal--spinner");
 var modalMessage = document.getElementById("modal--success__message");
-
-var headerToggle = function headerToggle() {
-  console.log("toggle");
-  headerClasses.forEach(function (headerClass) {
-    return header.classList.toggle(headerClass);
-  });
-};
-
 var scroll = new _locomotiveScroll.default({
   el: document.querySelector(".container"),
   smooth: true
@@ -16694,6 +16686,14 @@ ScrollTrigger.scrollerProxy(".container", {
   },
   pinType: document.querySelector(".container").style.transform ? "transform" : "fixed"
 });
+
+var headerToggle = function headerToggle() {
+  console.log("toggle");
+  headerClasses.forEach(function (headerClass) {
+    return header.classList.toggle(headerClass);
+  });
+};
+
 gsap.to(header, {
   scrollTrigger: {
     trigger: aboutSection,
@@ -16707,11 +16707,6 @@ ScrollTrigger.addEventListener("refresh", function () {
   return scroll.update();
 });
 ScrollTrigger.refresh();
-var navOptions = {
-  root: null,
-  rootMargin: "0px",
-  threshold: 0.7
-};
 
 var navCallback = function navCallback(entries, observer) {
   entries.forEach(function (entry) {
@@ -16731,6 +16726,11 @@ var navCallback = function navCallback(entries, observer) {
   });
 };
 
+var navOptions = {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.7
+};
 var observeNav = new IntersectionObserver(navCallback, navOptions);
 sections.forEach(function (section) {
   return observeNav.observe(section);
@@ -16760,7 +16760,6 @@ var skillsSlider = new _swiper.default(".skills__slider", {
   }
 });
 var worksSlider = new _swiper.default(".works__slider", {
-  // direction: "vertical",
   slidesPerView: 1,
   pagination: {
     el: ".works__pagination",

@@ -639,7 +639,7 @@ p {
   z-index: 10;
   position: fixed;
   top: 20vh;
-  left: calc(100vh - 25rem);
+  left: calc((90vw - 30rem) / 2);
 
   transition: 0.3s all;
 
@@ -979,5 +979,28 @@ p {
   .section--contact__content .contact__mail__submit:hover {
     background: var(--main-dark-col);
     color: var(--main-bg-col);
+  }
+
+  .modal {
+    width: 35rem;
+    height: 30rem;
+
+    top: 30vh;
+    left: calc((100vw - 35rem) / 2);
+
+    padding: 0 2rem;
+  }
+
+  .modal span {
+    font-size: 1.6rem;
+  }
+
+  .modal--spinner {
+    position: absolute;
+    transition: all 0.5s;
+  }
+
+  .modal .modal__close-btn {
+    font-size: 1.6rem;
   }
 }
