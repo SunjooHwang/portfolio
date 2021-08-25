@@ -15928,7 +15928,7 @@ ScrollTrigger.scrollerProxy(".container", {
 gsap.to(header, {
   scrollTrigger: {
     trigger: aboutSection,
-    start: "top 70",
+    start: "top 150",
     onEnter: headerToggle,
     onLeaveBack: headerToggle,
     scroller: ".container"
@@ -16065,7 +16065,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51857" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65124" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
