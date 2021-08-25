@@ -1,9 +1,13 @@
 import LocomotiveScroll from "locomotive-scroll";
 import Swiper from "swiper";
 import SwiperCore, { Navigation, Pagination } from "swiper/core";
-import emailjs from "emailjs-com";
+import emailjs, { send } from "emailjs-com";
 import { init } from "emailjs-com";
 import "swiper/swiper-bundle.css";
+import "regenerator-runtime/runtime";
+
+init("user_poIv8MFe13Qt8NqiRqneG");
+gsap.registerPlugin(ScrollTrigger);
 
 const aboutSection = document.querySelector(".section--about");
 
@@ -20,8 +24,12 @@ const mailBtn = document.querySelector(".contact__mail__submit");
 const navAnchors = document.querySelectorAll(".navbar__anchor");
 const navAnchorsMobile = document.querySelectorAll(".navbar__anchor--mobile");
 
-init("user_poIv8MFe13Qt8NqiRqneG");
-gsap.registerPlugin(ScrollTrigger);
+const modalSuccess = document.querySelector(".modal--success");
+const modalError = document.querySelector(".modal--error");
+const closeSuccessBtn = document.getElementById("modal--success__btn");
+const closeErrorBtn = document.getElementById("modal--error__btn");
+const spinner = document.querySelector(".modal--spinner");
+const modalMessage = document.getElementById("modal--success__message");
 
 const headerToggle = function () {
   console.log("toggle");
@@ -139,8 +147,17 @@ const worksSlider = new Swiper(".works__slider", {
   },
 });
 
-const sendMail = function (e) {
-  e.preventDefault();
+const renderSpinner = function () {
+  spinner.style.opacity = "0";
+};
+const showMessage = function () {
+  modalMessage.style.opacity = "1";
+};
+const showCloseBtn = function () {
+  closeSuccessBtn.style.opacity = "1";
+};
+
+const sendMail = function () {
   emailjs
     .sendForm("service_etoh47v", "template_bwtgrds", "#contact__mail")
     .then(
@@ -148,12 +165,20 @@ const sendMail = function (e) {
         console.log("SUCCESS!", response.status, response.text);
       },
       function (error) {
-        console.log("FAILED...", error);
+        modalError.classList.remove("modal--hidden");
+        console.error("FAILED...", error);
       }
     );
 };
 
-mailBtn.addEventListener("click", sendMail);
+mailBtn.addEventListener("click", function (e) {
+  sendMail;
+  modalSuccess.classList.remove("modal--hidden");
+  e.preventDefault();
+  setTimeout(renderSpinner, 2000);
+  setTimeout(showCloseBtn, 2000);
+  setTimeout(showMessage, 2000);
+});
 
 navAnchors.forEach((anchor, i) => {
   sections.forEach((sec, j) => {
@@ -179,4 +204,17 @@ brand.addEventListener("click", function () {
 
 brandMobile.addEventListener("click", function () {
   scroll.scrollTo(sections[0]);
+});
+
+closeSuccessBtn.addEventListener("click", async function () {
+  modalSuccess.classList.add("modal--hidden");
+  spinner.style.opacity = "1";
+  modalMessage.style.opacity = "0";
+  document.getElementById("contact__mail__name").value = "";
+  document.getElementById("contact__mail__address").value = "";
+  document.getElementById("contact__mail__message").value = "";
+});
+
+closeErrorBtn.addEventListener("click", function () {
+  modalError.classList.add("modal--hidden");
 });

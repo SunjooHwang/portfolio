@@ -443,6 +443,23 @@
         </div>
       </section>
     </main>
+    <div class="modal modal--success modal--hidden">
+      <span id="modal--success__message">
+        메일이 성공적으로 전송되었습니다.
+      </span>
+      <div class="lds-ellipsis modal--spinner"><div></div><div></div><div></div><div></div></div>
+      <button class="modal__close-btn" id="modal--success__btn">
+        OK
+      </button>
+    </div>
+    <div class="modal modal--error modal--hidden">
+      <span>
+        메일이 전송되지 않았습니다. 메일 주소를 확인해 주세요.
+      </span>
+      <button class="modal__close-btn" id="modal--error__btn">
+        OK
+      </button>
+    </div>
     <script src="./js/index.js"></script>
   </body>
 </html>

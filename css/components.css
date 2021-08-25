@@ -633,6 +633,60 @@ p {
   color: #fff;
 }
 
+.modal {
+  width: 50rem;
+  height: 30rem;
+  z-index: 10;
+  position: fixed;
+  top: 20vh;
+  left: calc(100vh - 25rem);
+
+  transition: 0.3s all;
+
+  background: var(--main-bg-col);
+  border: none;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal span {
+  font-size: 2rem;
+  color: var(--main-black-col);
+  font-family: "Noto Sans KR", sans-serif !important;
+  transition: all 0.5s;
+  opacity: 0;
+}
+
+.modal--spinner {
+  position: absolute;
+  transition: all 0.5s;
+}
+
+.modal .modal__close-btn {
+  border: 1px solid var(--main-dark-col);
+  width: 5rem;
+  height: 5rem;
+  border-radius: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  opacity: 0;
+}
+
+.modal .modal__close-btn:hover {
+  background: var(--main-dark-col);
+  color: var(--main-bg-col);
+}
+
+.modal--hidden {
+  display: none;
+  opacity: 0;
+  transition: 0.3s all;
+}
+
 @media screen and (max-width: 768px) {
   .header {
     display: flex;

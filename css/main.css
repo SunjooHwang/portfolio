@@ -1,5 +1,6 @@
 @import url(./components.css);
 @import url(./hover.css);
+@import url(./spinner.css);
 
 * {
   padding: 0;
