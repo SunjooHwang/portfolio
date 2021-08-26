@@ -25,19 +25,19 @@
       <nav class="navbar">
         <a href="#" class="navbar__brand">Sunjoo Hwang</a>
         <ul class="navbar__menu">
-          <li class="navbar__menu__item hvr-sweep-to-right" id="home">
+          <li class="navbar__menu__item hvr-grow" id="home">
             <a href="#home" class="navbar__anchor">Home</a>
           </li>
-          <li class="navbar__menu__item hvr-sweep-to-right" id="about">
+          <li class="navbar__menu__item hvr-grow" id="about">
             <a href="#about" class="navbar__anchor">About Me</a>
           </li>
-          <li class="navbar__menu__item hvr-sweep-to-right" id="skills">
+          <li class="navbar__menu__item hvr-grow" id="skills">
             <a href="#skills" class="navbar__anchor">Skills</a>
           </li>
-          <li class="navbar__menu__item hvr-sweep-to-right" id="works">
+          <li class="navbar__menu__item hvr-grow" id="works">
             <a href="#projects" class="navbar__anchor">Projects</a>
           </li>
-          <li class="navbar__menu__item hvr-sweep-to-right" id="contact">
+          <li class="navbar__menu__item hvr-grow" id="contact">
             <a href="#contact" class="navbar__anchor">Contacts</a>
           </li>
         </ul>
@@ -65,7 +65,7 @@
       <section class="section section--home" id="home" data-scroll-section>
         <article class="section--home__content">
           <h1
-            class="section--home__content__text home__title1 hvr-sweep-to-right--white"
+            class="section--home__content__text home__title1 hvr-float"
             data-scroll-class="lazy-up"
             data-scroll
             data-scroll-repeat="true"
@@ -73,7 +73,7 @@
             Sunjoo Hwang
           </h1>
           <h1
-            class="section--home__content__text home__title2 hvr-sweep-to-right--white"
+            class="section--home__content__text home__title2 hvr-float"
             data-scroll-class="lazy-up"
             data-scroll
             data-scroll-repeat="true"
@@ -437,13 +437,13 @@
               type="submit"
               value="Send"
               id="contact__mail__submit"
-              class="contact__mail__submit hvr-border-fade"
+              class="contact__mail__submit"
             />
           </form>
         </div>
       </section>
     </main>
-    <div class="modal modal--success modal--hidden">
+    <div class="modal modal--success  modal--hidden">
       <span id="modal--success__message">
         메일이 성공적으로 전송되었습니다.
       </span>
@@ -454,7 +454,7 @@
     </div>
     <div class="modal modal--error modal--hidden">
       <span>
-        메일이 전송되지 않았습니다. 메일 주소를 확인해 주세요.
+        메일이 전송되지 않았습니다. </br> 메일 주소를 확인해 주세요.
       </span>
       <button class="modal__close-btn" id="modal--error__btn">
         OK

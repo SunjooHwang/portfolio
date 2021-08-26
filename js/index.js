@@ -16,7 +16,7 @@ const aboutSection = document.querySelector(".section--about");
 
 const brand = document.querySelector(".navbar__brand");
 const brandMobile = document.querySelector(".navbar__brand--mobile");
-const navItems = document.querySelectorAll(".navbar__menu__item");
+
 const hamburger = document.querySelector(".navbar__hamburger");
 const navMobile = document.querySelector(".navbar__menu--mobile");
 const navAnchors = document.querySelectorAll(".navbar__anchor");
@@ -63,7 +63,6 @@ ScrollTrigger.scrollerProxy(".container", {
 });
 
 const headerToggle = function () {
-  console.log("toggle");
   headerClasses.forEach((headerClass) => header.classList.toggle(headerClass));
 };
 
@@ -80,33 +79,6 @@ gsap.to(header, {
 ScrollTrigger.addEventListener("refresh", () => scroll.update());
 
 ScrollTrigger.refresh();
-
-const navCallback = (entries, observer) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      const navItem = navItems[entry.target.id];
-      navItem.classList.add("item--active");
-      navItem.classList.remove("hvr-sweep-to-right");
-      navItem.classList.add("hvr-sweep-to-right--white");
-      Object.values(navItems).forEach((item) => {
-        if (item != navItem) {
-          navItem.classList.remove("item--active");
-          navItem.classList.add("hvr-sweep-to-right");
-          navItem.classList.remove("hvr-sweep-to-right--white");
-        }
-      });
-    }
-  });
-};
-
-const navOptions = {
-  root: null,
-  rootMargin: "0px",
-  threshold: 0.7,
-};
-
-const observeNav = new IntersectionObserver(navCallback, navOptions);
-sections.forEach((section) => observeNav.observe(section));
 
 hamburger.addEventListener("click", () => {
   navMobile.classList.toggle("mobile--active");
